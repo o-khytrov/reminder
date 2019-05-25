@@ -133,8 +133,7 @@ namespace reminder
             ConfigureAuthorization<ApplicationDbContext>(services);
 
             services.AddMvc();
-
-
+            
         }
     }
 }

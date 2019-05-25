@@ -23,5 +23,6 @@ namespace reminder.Entities
 
         public byte[] ImageBinary { get; set; }
 
+
     }
 }

@@ -34,23 +34,23 @@ namespace reminder.Contollers
             _jwtOptions = jwtOptions.Value;
 
 
-            CheckRoles();
+           // CheckRoles();
             _serializerSettings = new JsonSerializerSettings
             {
                 Formatting = Formatting.Indented
             };
         }
 
-        private async Task CheckRoles()
-        {
-            var roleCheck = await _roleManager.RoleExistsAsync("Admin");
-            if (!roleCheck)
-            {
-                //create the roles and seed them to the database    
-                var roleResult = await _roleManager.CreateAsync(new IdentityRole("Admin"));
-            }
+        //private async Task CheckRoles()
+        //{
+        //    var roleCheck = await _roleManager.RoleExistsAsync("Admin");
+        //    if (!roleCheck)
+        //    {
+        //        //create the roles and seed them to the database    
+        //        var roleResult = await _roleManager.CreateAsync(new IdentityRole("Admin"));
+        //    }
 
-        }
+        //}
         // POST api/auth/login
         [HttpPost("login")]
         public async Task<IActionResult> Post([FromBody]CredentialsViewModel credentials)

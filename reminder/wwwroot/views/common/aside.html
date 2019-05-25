@@ -1,4 +1,4 @@
-<aside class="aside-menu" ng-controller="reminderCtrl">
+<aside class="aside-menu">
   <ul class="nav nav-tabs" role="tablist">
     <li class="nav-item">
       <a tab class="nav-link active" data-toggle="tab" href="#timeline" role="tab"><i class="icon-list"></i></a>
@@ -9,100 +9,23 @@
   <!-- Tab panes -->
   <div class="tab-content">
     <div class="tab-pane active" id="timeline" role="tabpanel">
-      <!--<div class="callout m-0 py-2 text-muted text-center bg-light text-uppercase">
-        <small><b>Today</b></small>
-      </div>-->
+      <div class="callout m-0 py-2 text-muted text-center bg-light text-uppercase">
+        <small><b>All events</b></small>
+      </div>
       <hr class="transparent mx-3 my-0">
       <div ng-repeat="note in notes" class="callout callout-warning m-0 py-3">
-        <div class="avatar float-right">
-          <img src="img/avatars/7.jpg" class="img-avatar" alt="admin@bootstrapmaster.com">
-        </div>
-        <div>
-          <strong>{{note.title}}</strong>
-        </div>
-        <small class="text-muted mr-3"><i class="icon-calendar"></i>&nbsp;{{note.dateTime  | date:"dd.MM.yyyy 'at' H:mm"}}</small>
-        <br />
+          <div>
+              <strong>{{note.title}}</strong>
+          </div>
+          <small class="text-muted mr-3">Event  <i class="icon-calendar"></i>&nbsp;{{note.eventDate +"Z" | date:"dd.MM.yyyy 'at' H:mm"}}</small>
+          <br />
+          <small class="text-muted mr-3">Remind at &nbsp;{{note.remindDate +"Z" | date:"dd.MM.yyyy 'at' H:mm"}}</small>
+          <br />
           <small class="text-muted"><i class="icon-location-pin"></i>&nbsp;{{note.place}} </small>
+          <br />
+          <small class="text-muted">&nbsp;{{note.decription}} </small>
+          <a href="#" class="text-muted" ng-click="DeleteNote(note.id)"><i class="icon-trash"></i>&nbsp;</a>
       </div>
-      <!--<hr class="mx-3 my-0">
-      <div class="callout callout-info m-0 py-3">
-        <div class="avatar float-right">
-          <img src="img/avatars/4.jpg" class="img-avatar" alt="admin@bootstrapmaster.com">
-        </div>
-        <div>Skype with
-          <strong>Megan</strong>
-        </div>
-        <small class="text-muted mr-3"><i class="icon-calendar"></i>&nbsp; 4 - 5pm</small>
-        <small class="text-muted"><i class="icon-social-skype"></i>&nbsp; On-line </small>
-      </div>
-      <hr class="transparent mx-3 my-0">
-      <div class="callout m-0 py-2 text-muted text-center bg-light text-uppercase">
-        <small><b>Tomorrow</b></small>
-      </div>
-      <hr class="transparent mx-3 my-0">
-      <div class="callout callout-danger m-0 py-3">
-        <div>New UI Project -
-          <strong>deadline</strong>
-        </div>
-        <small class="text-muted mr-3"><i class="icon-calendar"></i>&nbsp; 10 - 11pm</small>
-        <small class="text-muted"><i class="icon-home"></i>&nbsp; creativeLabs HQ </small>
-        <div class="avatars-stack mt-2">
-          <div class="avatar avatar-xs">
-            <img src="img/avatars/2.jpg" class="img-avatar" alt="admin@bootstrapmaster.com">
-          </div>
-          <div class="avatar avatar-xs">
-            <img src="img/avatars/3.jpg" class="img-avatar" alt="admin@bootstrapmaster.com">
-          </div>
-          <div class="avatar avatar-xs">
-            <img src="img/avatars/4.jpg" class="img-avatar" alt="admin@bootstrapmaster.com">
-          </div>
-          <div class="avatar avatar-xs">
-            <img src="img/avatars/5.jpg" class="img-avatar" alt="admin@bootstrapmaster.com">
-          </div>
-          <div class="avatar avatar-xs">
-            <img src="img/avatars/6.jpg" class="img-avatar" alt="admin@bootstrapmaster.com">
-          </div>
-        </div>
-      </div>
-      <hr class="mx-3 my-0">
-      <div class="callout callout-success m-0 py-3">
-        <div>
-          <strong>#10 Startups.Garden</strong> Meetup</div>
-        <small class="text-muted mr-3"><i class="icon-calendar"></i>&nbsp; 1 - 3pm</small>
-        <small class="text-muted"><i class="icon-location-pin"></i>&nbsp; Palo Alto, CA </small>
-      </div>
-      <hr class="mx-3 my-0">
-      <div class="callout callout-primary m-0 py-3">
-        <div>
-          <strong>Team meeting</strong>
-        </div>
-        <small class="text-muted mr-3"><i class="icon-calendar"></i>&nbsp; 4 - 6pm</small>
-        <small class="text-muted"><i class="icon-home"></i>&nbsp; creativeLabs HQ </small>
-        <div class="avatars-stack mt-2">
-          <div class="avatar avatar-xs">
-            <img src="img/avatars/2.jpg" class="img-avatar" alt="admin@bootstrapmaster.com">
-          </div>
-          <div class="avatar avatar-xs">
-            <img src="img/avatars/3.jpg" class="img-avatar" alt="admin@bootstrapmaster.com">
-          </div>
-          <div class="avatar avatar-xs">
-            <img src="img/avatars/4.jpg" class="img-avatar" alt="admin@bootstrapmaster.com">
-          </div>
-          <div class="avatar avatar-xs">
-            <img src="img/avatars/5.jpg" class="img-avatar" alt="admin@bootstrapmaster.com">
-          </div>
-          <div class="avatar avatar-xs">
-            <img src="img/avatars/6.jpg" class="img-avatar" alt="admin@bootstrapmaster.com">
-          </div>
-          <div class="avatar avatar-xs">
-            <img src="img/avatars/7.jpg" class="img-avatar" alt="admin@bootstrapmaster.com">
-          </div>
-          <div class="avatar avatar-xs">
-            <img src="img/avatars/8.jpg" class="img-avatar" alt="admin@bootstrapmaster.com">
-          </div>
-        </div>
-      </div>
-      <hr class="mx-3 my-0">-->
     </div>
    
   </div>

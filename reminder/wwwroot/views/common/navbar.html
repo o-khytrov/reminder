@@ -1,26 +1,26 @@
 <header class="app-header navbar">
-  <button class="navbar-toggler mobile-sidebar-toggler d-lg-none" type="button">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <a class="navbar-brand" ui-sref="app.main"></a>
-  
-  <ul class="nav navbar-nav ml-auto d-md-down-none">
 
-    <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-        <img src="img/avatars/6.jpg" class="img-avatar" alt="admin@bootstrapmaster.com">
-      </a>
-      <div class="dropdown-menu dropdown-menu-right">
-
-        <a class="dropdown-item" href="#"><i class="fa fa-user"></i> Profile</a>
-        <a class="dropdown-item" href="#"><i class="fa fa-lock"></i> Logout</a>
-      </div>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link navbar-toggler aside-menu-toggler" href="#">
+    <button class="navbar-toggler mobile-sidebar-toggler d-lg-none" type="button">
         <span class="navbar-toggler-icon"></span>
-      </a>
-    </li>
+    </button>
+    <!--<a class="navbar-brand" ui-sref="app.main"></a>-->
+    <div style="margin-left:10px;" ng-controller='TimeCtrl'>
+        <h3 class="text-center">{{ clock  | date:'yyyy.MM.dd h.mm.ss'}}</h3>
+    </div>
+    <ul class="nav navbar-nav ml-auto d-md-down-none">
 
-  </ul>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                <img src="img/avatars/6.jpg" class="img-avatar" alt="admin@bootstrapmaster.com">
+            </a>
+            <div class="dropdown-menu dropdown-menu-right">
+                <a class="dropdown-item" href="#" ng-click="logOut()"><i class="fa fa-lock"></i> Logout</a>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link navbar-toggler aside-menu-toggler" href="#">
+                <span class="navbar-toggler-icon"></span>
+            </a>
+
+    </ul>
 </header>

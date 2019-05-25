@@ -1,7 +1,8 @@
 angular
 .module('app')
 .config(['$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider', '$breadcrumbProvider', function($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, $breadcrumbProvider) {
-  $stateProvider
+
+    $stateProvider
   .state('app.icons', {
     url: "/icons",
     abstract: true,

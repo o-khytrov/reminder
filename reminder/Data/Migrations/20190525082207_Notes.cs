@@ -8,11 +8,19 @@ namespace reminder.Data.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AddColumn<string>(
-                name: "Discriminator",
-                table: "AspNetUsers",
+            migrationBuilder.AlterColumn<string>(
+                name: "Name",
+                table: "AspNetUserTokens",
                 nullable: false,
-                defaultValue: "");
+                oldClrType: typeof(string),
+                oldMaxLength: 128);
+
+            migrationBuilder.AlterColumn<string>(
+                name: "LoginProvider",
+                table: "AspNetUserTokens",
+                nullable: false,
+                oldClrType: typeof(string),
+                oldMaxLength: 128);
 
             migrationBuilder.AddColumn<string>(
                 name: "FirstName",
@@ -43,6 +51,20 @@ namespace reminder.Data.Migrations
                 maxLength: 100,
                 nullable: true);
 
+            migrationBuilder.AlterColumn<string>(
+                name: "ProviderKey",
+                table: "AspNetUserLogins",
+                nullable: false,
+                oldClrType: typeof(string),
+                oldMaxLength: 128);
+
+            migrationBuilder.AlterColumn<string>(
+                name: "LoginProvider",
+                table: "AspNetUserLogins",
+                nullable: false,
+                oldClrType: typeof(string),
+                oldMaxLength: 128);
+
             migrationBuilder.CreateTable(
                 name: "Notes",
                 columns: table => new
@@ -50,9 +72,10 @@ namespace reminder.Data.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Title = table.Column<string>(maxLength: 200, nullable: false),
-                    DateTime = table.Column<DateTime>(nullable: false),
+                    EventDate = table.Column<DateTime>(nullable: false),
+                    RemindDate = table.Column<DateTime>(nullable: false),
                     Description = table.Column<string>(maxLength: 1000, nullable: true),
-                    Palce = table.Column<string>(nullable: true),
+                    Place = table.Column<string>(nullable: true),
                     UserId = table.Column<string>(nullable: false),
                     Dismissed = table.Column<bool>(nullable: false),
                     Completed = table.Column<bool>(nullable: false)
@@ -80,10 +103,6 @@ namespace reminder.Data.Migrations
                 name: "Notes");
 
             migrationBuilder.DropColumn(
-                name: "Discriminator",
-                table: "AspNetUsers");
-
-            migrationBuilder.DropColumn(
                 name: "FirstName",
                 table: "AspNetUsers");
 
@@ -102,6 +121,34 @@ namespace reminder.Data.Migrations
             migrationBuilder.DropColumn(
                 name: "MiddleName",
                 table: "AspNetUsers");
+
+            migrationBuilder.AlterColumn<string>(
+                name: "Name",
+                table: "AspNetUserTokens",
+                maxLength: 128,
+                nullable: false,
+                oldClrType: typeof(string));
+
+            migrationBuilder.AlterColumn<string>(
+                name: "LoginProvider",
+                table: "AspNetUserTokens",
+                maxLength: 128,
+                nullable: false,
+                oldClrType: typeof(string));
+
+            migrationBuilder.AlterColumn<string>(
+                name: "ProviderKey",
+                table: "AspNetUserLogins",
+                maxLength: 128,
+                nullable: false,
+                oldClrType: typeof(string));
+
+            migrationBuilder.AlterColumn<string>(
+                name: "LoginProvider",
+                table: "AspNetUserLogins",
+                maxLength: 128,
+                nullable: false,
+                oldClrType: typeof(string));
         }
     }
 }
