@@ -32,7 +32,7 @@
                             <label class="form-col-form-label" for="place">Place</label>
                             <input type="text" class="form-control" id="place" ng-model="note.place" required>
                         </div>
-                        <button ng-disabled="noteForm.$invalid" class="btn btn-primary" ng-click="SaveNote()">Create</button>
+                        <button ng-disabled="noteForm.$invalid" class="btn btn-primary" ng-click="SaveNote()">Save</button>
                         <button ng-disabled="!noteForm.$invalid" class="btn btn-light" ng-click="CloseForm()">Cancel</button>
                     </div>
                 </form>
@@ -50,7 +50,6 @@
                         </button>
                         <div class="dropdown-menu dropdown-menu-right">
                             <a class="dropdown-item" href="#" ng-click="DeleteNote(note.id)">Delete</a>
-                            <a class="dropdown-item" href="#">Dismiss</a>
                             <a class="dropdown-item" href="#" ng-click="UpdateNote(note)">Update</a>
                         </div>
                     </div>
