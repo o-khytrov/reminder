@@ -5,35 +5,51 @@
         <div class="col-4">
             <div class="card">
                 <div class="card-header">
-                    <strong>Reminder </strong> 
+                    <strong>Reminder </strong>
                 </div>
                 <form name="noteForm">
                     <div class="card-body">
                         <div class="form-group">
                             <label class="form-col-form-label">Event date</label>
-                            <input class="form-control" type="datetime-local" id="exampleInput" name="input" ng-model="note.eventDate"
-                                   placeholder="yyyy-MM-ddTHH:mm:ss" min="{{minDate}}" required />
+                            <input class="form-control" type="datetime-local" id="eventDate" name="eventDate" ng-class="{'is-invalid': noteForm.eventDate.$invalid }" ng-model="note.eventDate"
+                                   placeholder="yyyy-MM-ddTHH:mm:ss" min="{{minDate}}" ng-change="onEventDateChange()" required />
+                            <span class="badge badge-danger" ng-show="noteForm.eventDate.$error.required">Required</span>
+                            <span class="badge badge-danger" ng-show="noteForm.eventDate.$error.min">Less than min</span>
                         </div>
                         <div class="form-group">
                             <label>Remind at</label>
-                            <input class="form-control" type="datetime-local" id="exampleInput" name="input" ng-model="note.remindDate"
-                                   placeholder="yyyy-MM-ddTHH:mm:ss" min="{{minDate}}" required />
+                            <input class="form-control" ng-class="{'is-invalid': noteForm.remindDate.$invalid }" type="datetime-local" id="remindDate" 
+                                   name="remindDate" ng-model="note.remindDate"
+                                   placeholder="yyyy-MM-ddTHH:mm:ss" min="{{minRemindDate}}" required 
+                                   />
+                            <span class="badge badge-danger" ng-show="noteForm.remindDate.$error.required">Required</span>
+                            <span class="badge badge-danger" ng-show="noteForm.remindDate.$error.min">Less than min</span>
+                          
                         </div>
                         <div class="form-group">
                             <label class="form-col-form-label" for="title">Title</label>
-                            <input type="text" class="form-control" id="inputSuccess1" ng-model="note.title" required>
+                            <input type="text" class="form-control" id="title" ng-model="note.title" required name="title"
+                                    ng-class="{'is-invalid': noteForm.title.$invalid && noteForm.title.$touched }" 
+                                   >
+                            <span class="badge badge-danger" ng-show="noteForm.title.$touched && noteForm.title.$error.required">Required</span>
                         </div>
                         <div class="form-group">
                             <label class="form-col-form-label" for="description">Description</label>
-                            <textarea class="form-control" id="inputError1" ng-model="note.description" required></textarea>
-                    
+                            <textarea class="form-control" id="description" ng-model="note.description" name="description" required
+                                        ng-class="{'is-invalid': noteForm.description.$invalid && noteForm.description.$touched}" 
+                                      ></textarea>
+                            <span class="badge badge-danger" ng-show="noteForm.description.$touched && noteForm.description.$error.required">Required</span>
+
                         </div>
                         <div class="form-group">
                             <label class="form-col-form-label" for="place">Place</label>
-                            <input type="text" class="form-control" id="place" ng-model="note.place" required>
+                            <input type="text" class="form-control" id="place" ng-model="note.place" name="place" required
+                                    ng-class="{'is-invalid': noteForm.place.$invalid && noteForm.place.$touched }" 
+                                   >
+                            <span class="badge badge-danger" ng-show="noteForm.place.$touched  && noteForm.place.$error.required">Required</span>
                         </div>
                         <button ng-disabled="noteForm.$invalid" class="btn btn-primary" ng-click="SaveNote()">Save</button>
-                        <button ng-disabled="!noteForm.$invalid" class="btn btn-light" ng-click="CloseForm()">Cancel</button>
+                        <button class="btn btn-light" ng-click="CloseForm()">Cancel</button>
                     </div>
                 </form>
             </div>
@@ -53,7 +69,7 @@
                             <a class="dropdown-item" href="#" ng-click="UpdateNote(note)">Update</a>
                         </div>
                     </div>
-                    <h4 class="mb-0">{{note.eventDate +"Z" | date:"dd.MM.yyyy 'at' H:mm"}}</h4>
+                    <h4 class="mb-0">{{note.eventDate | date:"dd.MM.yyyy 'at' H:mm"}}</h4>
                     <p>{{note.title}}</p>
                     <p>{{note.description}}</p>
                 </div>
