@@ -18,7 +18,7 @@ angular
         $stateProvider
             .state('app', {
                 abstract: true,
-                templateUrl: 'views/common/layouts/full.html',
+                templateUrl: 'dist/views/common/layouts/full.html',
                 //page title goes here
                 ncyBreadcrumb: {
                     label: 'Root',
@@ -31,15 +31,15 @@ angular
                         return $ocLazyLoad.load([{
                             serie: true,
                             name: 'Flags',
-                            files: ['node_modules/flag-icon-css/css/flag-icon.min.css']
+                            files: ['dist/vendors/css/flag-icon.min.css']
                         }, {
                             serie: true,
                             name: 'Font Awesome',
-                            files: ['node_modules/font-awesome/css/font-awesome.min.css']
+                                files: ['dist/vendors/css/font-awesome.min.css']
                         }, {
                             serie: true,
                             name: 'Simple Line Icons',
-                            files: ['node_modules/simple-line-icons/css/simple-line-icons.css']
+                                files: ['dist/vendors/css/simple-line-icons.css']
                         }]);
                     }],
                     loadPlugin: ['$ocLazyLoad', function ($ocLazyLoad) {
@@ -48,8 +48,8 @@ angular
                             serie: true,
                             name: 'chart.js',
                             files: [
-                                'node_modules/chart.js/dist/Chart.min.js',
-                                'node_modules/angular-chart.js/dist/angular-chart.min.js'
+                                'dist/vendors/js/Chart.min.js',
+                                'dist/vendors/js/angular-chart.min.js'
                             ]
                         }]);
                     }],
@@ -59,7 +59,7 @@ angular
             })
             .state('app.main', {
                 url: '/dashboard',
-                templateUrl: 'views/main.html',
+                templateUrl: 'dist/views/main.html',
                 //page title goes here
                 ncyBreadcrumb: {
                     label: 'Home',
@@ -74,8 +74,8 @@ angular
                                 serie: true,
                                 name: 'chart.js',
                                 files: [
-                                    'node_modules/chart.js/dist/Chart.min.js',
-                                    'node_modules/angular-chart.js/dist/angular-chart.min.js'
+                                    'dist/vendors/js/Chart.min.js',
+                                    'dist/vendors/js/angular-chart.min.js'
                                 ]
                             },
                         ]);
@@ -83,25 +83,25 @@ angular
                     loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
                         // you can lazy load controllers
                         return $ocLazyLoad.load({
-                            files: ['js/controllers/main.js']
+                            files: ['dist/js/controllers/main.js']
                         });
                     }]
                 }
             })
             .state('appSimple', {
                 abstract: true,
-                templateUrl: 'views/common/layouts/simple.html',
+                templateUrl: 'dist/views/common/layouts/simple.html',
                 resolve: {
                     loadCSS: ['$ocLazyLoad', function ($ocLazyLoad) {
                         // you can lazy load CSS files
                         return $ocLazyLoad.load([{
                             serie: true,
                             name: 'Font Awesome',
-                            files: ['node_modules/font-awesome/css/font-awesome.min.css']
+                            files: ['dist/vendors/css/font-awesome.min.css']
                         }, {
                             serie: true,
                             name: 'Simple Line Icons',
-                            files: ['node_modules/simple-line-icons/css/simple-line-icons.css']
+                                files: ['dist/vendors/css/simple-line-icons.css']
                         }]);
                     }],
                 }
@@ -110,22 +110,22 @@ angular
             // Additional Pages
             .state('appSimple.login', {
                 url: '/login',
-                templateUrl: 'views/pages/login.html',
+                templateUrl: 'dist/views/pages/login.html',
                 controller: 'LoginController',
                 controllerAs: 'vm'
             })
             .state('appSimple.register', {
                 url: '/register',
-                templateUrl: 'views/pages/register.html',
+                templateUrl: 'dist/views/pages/register.html',
                 controller: 'RegisterController',
                 controllerAs: 'vm'
             })
             .state('appSimple.404', {
                 url: '/404',
-                templateUrl: 'views/pages/404.html'
+                templateUrl: 'dist/views/pages/404.html'
             })
             .state('appSimple.500', {
                 url: '/500',
-                templateUrl: 'views/pages/500.html'
+                templateUrl: 'dist/views/pages/500.html'
             })
     }]);

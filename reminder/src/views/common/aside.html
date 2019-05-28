@@ -17,9 +17,9 @@
           <div>
               <strong>{{note.title}}</strong>
           </div>
-          <small class="text-muted mr-3">Event  <i class="icon-calendar"></i>&nbsp;{{note.eventDate +"Z" | date:"dd.MM.yyyy 'at' H:mm"}}</small>
+          <small class="text-muted mr-3">Event  <i class="icon-calendar"></i>&nbsp;{{note.eventDate  | date:"dd.MM.yyyy 'at' H:mm"}}</small>
           <br />
-          <small class="text-muted mr-3">Remind at &nbsp;{{note.remindDate +"Z" | date:"dd.MM.yyyy 'at' H:mm"}}</small>
+          <small class="text-muted mr-3">Remind at &nbsp;{{note.remindDate  | date:"dd.MM.yyyy 'at' H:mm"}}</small>
           <br />
           <small class="text-muted"><i class="icon-location-pin"></i>&nbsp;{{note.place}} </small>
           <br />

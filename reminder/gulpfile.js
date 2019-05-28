@@ -9,9 +9,9 @@ var rename = require('gulp-rename');
 var runSequence = require('run-sequence');
 
 gulp.paths = {
-  dist: 'dist/',
+  dist: 'wwwroot/dist/',
   src: 'src/',
-  vendors: 'dist/vendors/'
+  vendors: 'wwwroot/dist/vendors/'
 };
 
 var paths = gulp.paths;
